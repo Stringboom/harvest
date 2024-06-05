@@ -117,6 +117,7 @@ There is a front end app @ [http://localhost:4000](http://localhost:4000).
 #### What I Would add
 
 - API Auth
+- Optimization of the translation service both in the node and python solution
 - in-depth caching
 - More Integration with monorepo
 - More API Endpoints
