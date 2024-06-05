@@ -1,0 +1,18 @@
+{
+  "name": "harvest",
+  "private": true,
+  "scripts": {
+    "start": "docker-compose up --build",
+    "stop": "docker-compose down",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
+  }
+}

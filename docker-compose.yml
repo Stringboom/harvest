@@ -1,0 +1,68 @@
+services:
+  wordpress:
+    build:
+      context: ./apps/wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress-db-user
+      WORDPRESS_DB_PASSWORD: wordpress-db-pass
+      WORDPRESS_DB_NAME: wordpress
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress-db-user
+      MYSQL_PASSWORD: wordpress-db-pass
+      MYSQL_ROOT_PASSWORD: wordpress-db-root-pass
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: wordpress-db-root-pass
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./apps/backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - wordpress
+      - translation
+    networks:
+      - app-network
+
+  translation:
+    build:
+      context: ./apps/translation
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./apps/frontend
+    ports:
+      - "4000:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
