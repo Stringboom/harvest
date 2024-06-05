@@ -12,13 +12,19 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```sh
-   git clone harvest-repo
+   git clone https://github.com/Stringboom/harvest.git
    ```
 
 2. Navigate to the project directory:
 
    ```sh
-   cd harvest-repo
+   cd harvest
+   ```
+
+   or
+
+   ```sh
+   code harvest
    ```
 
 3. Install dependencies:
@@ -45,7 +51,7 @@ Make sure you have the following installed:
 
 5. Select the "wordpress" database.
 
-6. Click on "Import" and import the `wordpress.sql` file provided in the root folder.
+6. Click on "Import" and import the `wordpress.sql` file provided in the root folder of the project.
 
 ### WordPress Admin Credentials
 
@@ -106,7 +112,7 @@ Import the "Harvest Challenge" collection into your postman from the file provid
 
 #### Front End App
 
-There is a front end app @ `http://localhost:4000`
+There is a front end app @ [http://localhost:4000](http://localhost:4000).
 
 #### What I Would add
 
